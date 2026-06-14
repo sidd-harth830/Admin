@@ -1,8 +1,15 @@
-import { Client, Databases, Account } from 'appwrite';
+import { Client, Databases, ID } from 'appwrite';
 
-const client = new Client()
-    .setEndpoint('https://cloud.appwrite.io/v1')
-    .setProject('YOUR_PROJECT_ID'); // Grab this from your .env!
+export const appwriteConfig = {
+  endpoint: 'https://cloud.appwrite.io/v1',
+  projectId: 'sgp-6a2ce46a003230dcf661',
+  databaseId: '6a2ce492003a18046d9b',
+  collectionId: 'releases',
+};
+
+export const client = new Client()
+  .setEndpoint(appwriteConfig.endpoint)
+  .setProject(appwriteConfig.projectId);
 
 export const databases = new Databases(client);
-export const account = new Account(client);
+export { ID };
